@@ -8,8 +8,8 @@ class Prismix < Formula
   depends_on "node"
 
   def install
-    # Install dependencies
-    system "npm", "install", "--production"
+    # Install all dependencies (including devDependencies for Vite)
+    system "npm", "install"
     
     # Copy all files to libexec
     libexec.install Dir["*"]
