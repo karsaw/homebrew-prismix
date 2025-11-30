@@ -1,0 +1,153 @@
+/* View-specific color overrides */
+:root {
+    --view-color: #64b5f6;
+    /* Default to blue */
+}
+
+[data-view="database"] {
+    --view-color: #64b5f6;
+    /* Soft Blue */
+}
+
+[data-view="build"] {
+    --view-color: #ba68c8;
+    /* Soft Purple */
+}
+
+[data-view="views"] {
+    --view-color: #81c784;
+    /* Soft Green */
+}
+
+/* ========== BUTTONS ========== */
+
+/* Apply view color to refresh buttons */
+[data-view="database"] .refresh-btn {
+    background: #64b5f6 !important;
+}
+
+[data-view="build"] .refresh-btn {
+    background: #ba68c8 !important;
+}
+
+[data-view="views"] .refresh-btn {
+    background: #81c784 !important;
+}
+
+/* Apply view color to primary/filled buttons */
+[data-view="database"] button[type="submit"],
+[data-view="database"] .MuiButton-contained,
+[data-view="database"] .primary-btn,
+[data-view="database"] .save-btn {
+    background: #64b5f6 !important;
+    color: #ffffff !important;
+}
+
+[data-view="database"] button[type="submit"]:hover,
+[data-view="database"] .MuiButton-contained:hover,
+[data-view="database"] .primary-btn:hover,
+[data-view="database"] .save-btn:hover {
+    background: #42a5f5 !important;
+}
+
+[data-view="build"] button[type="submit"],
+[data-view="build"] .MuiButton-contained,
+[data-view="build"] .primary-btn,
+[data-view="build"] .save-btn {
+    background: #ba68c8 !important;
+    color: #ffffff !important;
+}
+
+[data-view="build"] button[type="submit"]:hover,
+[data-view="build"] .MuiButton-contained:hover,
+[data-view="build"] .primary-btn:hover,
+[data-view="build"] .save-btn:hover {
+    background: #ab47bc !important;
+}
+
+[data-view="views"] button[type="submit"],
+[data-view="views"] .MuiButton-contained,
+[data-view="views"] .primary-btn,
+[data-view="views"] .save-btn {
+    background: #81c784 !important;
+    color: #ffffff !important;
+}
+
+[data-view="views"] button[type="submit"]:hover,
+[data-view="views"] .MuiButton-contained:hover,
+[data-view="views"] .primary-btn:hover,
+[data-view="views"] .save-btn:hover {
+    background: #66bb6a !important;
+}
+
+/* ========== SELECTED ITEMS ========== */
+
+/* Apply view color to selected items */
+[data-view="database"] .MuiListItemButton-root.Mui-selected {
+    background: rgba(100, 181, 246, 0.15) !important;
+    color: #64b5f6 !important;
+    border-left: 3px solid #64b5f6 !important;
+}
+
+[data-view="database"] .MuiListItemButton-root.Mui-selected .MuiListItemIcon-root,
+[data-view="database"] .MuiListItemButton-root.Mui-selected .MuiListItemText-primary {
+    color: #64b5f6 !important;
+}
+
+[data-view="build"] .MuiListItemButton-root.Mui-selected {
+    background: rgba(186, 104, 200, 0.15) !important;
+    color: #ba68c8 !important;
+    border-left: 3px solid #ba68c8 !important;
+}
+
+[data-view="build"] .MuiListItemButton-root.Mui-selected .MuiListItemIcon-root,
+[data-view="build"] .MuiListItemButton-root.Mui-selected .MuiListItemText-primary {
+    color: #ba68c8 !important;
+}
+
+[data-view="views"] .MuiListItemButton-root.Mui-selected {
+    background: rgba(129, 199, 132, 0.15) !important;
+    color: #81c784 !important;
+    border-left: 3px solid #81c784 !important;
+}
+
+[data-view="views"] .MuiListItemButton-root.Mui-selected .MuiListItemIcon-root,
+[data-view="views"] .MuiListItemButton-root.Mui-selected .MuiListItemText-primary {
+    color: #81c784 !important;
+}
+
+/* ========== TABLE ROWS ========== */
+
+/* Apply view color to table selected rows */
+[data-view="database"] .database-table tbody tr.selected,
+[data-view="database"] .database-table tbody tr.active {
+    background: rgba(100, 181, 246, 0.15) !important;
+    border-left: 3px solid #64b5f6 !important;
+}
+
+[data-view="database"] .database-table tbody tr.selected td,
+[data-view="database"] .database-table tbody tr.active td {
+    color: #64b5f6 !important;
+}
+
+[data-view="build"] .database-table tbody tr.selected,
+[data-view="build"] .database-table tbody tr.active {
+    background: rgba(186, 104, 200, 0.15) !important;
+    border-left: 3px solid #ba68c8 !important;
+}
+
+[data-view="build"] .database-table tbody tr.selected td,
+[data-view="build"] .database-table tbody tr.active td {
+    color: #ba68c8 !important;
+}
+
+[data-view="views"] .database-table tbody tr.selected,
+[data-view="views"] .database-table tbody tr.active {
+    background: rgba(129, 199, 132, 0.15) !important;
+    border-left: 3px solid #81c784 !important;
+}
+
+[data-view="views"] .database-table tbody tr.selected td,
+[data-view="views"] .database-table tbody tr.active td {
+    color: #81c784 !important;
+}

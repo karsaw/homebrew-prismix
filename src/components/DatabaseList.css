@@ -1,0 +1,437 @@
+/* ============================================
+   DATABASE LIST - CLOUD CONSOLE DATA TABLE
+   ============================================ */
+
+.database-list {
+  background: var(--md-sys-color-surface);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* ========== TOOLBAR ========== */
+.database-list-toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--md-sys-spacing-3);
+  padding: var(--md-sys-spacing-3) var(--md-sys-spacing-4);
+  background: var(--md-sys-color-surface);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  min-height: 56px;
+  flex-shrink: 0;
+}
+
+.database-list-toolbar h2 {
+  margin: 0;
+  color: var(--md-sys-color-on-surface);
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.toolbar-section {
+  display: flex;
+  align-items: center;
+  gap: var(--md-sys-spacing-2);
+}
+
+.toolbar-section-grow {
+  flex: 1;
+}
+
+.toolbar-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--md-sys-color-outline-variant);
+  margin: 0 var(--md-sys-spacing-2);
+}
+
+/* Search in Toolbar */
+.database-search {
+  display: flex;
+  align-items: center;
+  gap: var(--md-sys-spacing-2);
+  padding: 0 var(--md-sys-spacing-3);
+  background: var(--md-sys-color-surface-container);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--md-sys-shape-corner-full);
+  height: 36px;
+  min-width: 200px;
+  transition: all var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+}
+
+.database-search:focus-within {
+  background: var(--md-sys-color-surface);
+  border-color: var(--md-sys-color-primary);
+  box-shadow: 0 0 0 1px var(--md-sys-color-primary);
+}
+
+.database-search .material-symbols-outlined {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 18px;
+}
+
+.database-search input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--md-sys-color-on-surface);
+  font-family: 'Roboto', sans-serif;
+}
+
+.database-search input::placeholder {
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+/* Density Toggle */
+.density-toggle {
+  display: flex;
+  background: var(--md-sys-color-surface-container);
+  border-radius: var(--md-sys-shape-corner-small);
+  padding: 2px;
+  gap: 2px;
+}
+
+.density-option {
+  padding: var(--md-sys-spacing-1) var(--md-sys-spacing-2);
+  background: transparent;
+  border: none;
+  border-radius: var(--md-sys-shape-corner-small);
+  cursor: pointer;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface-variant);
+  transition: all var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+  display: flex;
+  align-items: center;
+  gap: var(--md-sys-spacing-1);
+}
+
+.density-option .material-symbols-outlined {
+  font-size: 16px;
+}
+
+.density-option:hover {
+  background: var(--md-sys-color-surface-container-high);
+}
+
+.density-option.active {
+  background: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+}
+
+/* Refresh Button - Soft Blue */
+.refresh-btn {
+  background: #64b5f6;
+  color: #ffffff;
+  border: none;
+  padding: 0 var(--md-sys-spacing-4);
+  height: 36px;
+  border-radius: var(--md-sys-shape-corner-full);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  transition: all var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+  box-shadow: var(--md-sys-elevation-level0);
+  display: flex;
+  align-items: center;
+  gap: var(--md-sys-spacing-2);
+  position: relative;
+  overflow: hidden;
+}
+
+.refresh-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--md-sys-color-on-primary);
+  opacity: 0;
+  transition: opacity var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+}
+
+.refresh-btn:hover {
+  box-shadow: var(--md-sys-elevation-level1);
+}
+
+.refresh-btn:hover::before {
+  opacity: var(--md-sys-state-hover-opacity);
+}
+
+.refresh-btn:active::before {
+  opacity: var(--md-sys-state-pressed-opacity);
+}
+
+.refresh-btn .material-symbols-outlined {
+  font-size: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.refresh-btn span {
+  position: relative;
+  z-index: 1;
+}
+
+/* ========== DATA TABLE ========== */
+.database-table-container {
+  flex: 1;
+  overflow: auto;
+  background: var(--md-sys-color-surface);
+}
+
+.database-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.database-table thead {
+  background: var(--md-sys-color-surface-container);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.database-table th {
+  padding: var(--md-sys-spacing-3) var(--md-sys-spacing-4);
+  text-align: left;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface-variant);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.database-table th.sortable {
+  cursor: pointer;
+  transition: background var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+}
+
+.database-table th.sortable:hover {
+  background: var(--md-sys-color-surface-container-high);
+}
+
+.database-table td {
+  padding: var(--md-sys-spacing-3) var(--md-sys-spacing-4);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  color: var(--md-sys-color-on-surface);
+}
+
+.database-table tbody tr {
+  transition: background var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+  cursor: pointer;
+}
+
+.database-table tbody tr:hover {
+  background: var(--md-sys-color-surface-container-low);
+}
+
+.database-table tbody tr.selected,
+.database-table tbody tr.active {
+  background: rgba(100, 181, 246, 0.15);
+  border-left: 3px solid #64b5f6;
+}
+
+.database-table tbody tr.selected td,
+.database-table tbody tr.active td {
+  color: #64b5f6;
+}
+
+/* Density variants */
+.database-table.density-comfortable td,
+.database-table.density-comfortable th {
+  padding: var(--md-sys-spacing-4) var(--md-sys-spacing-4);
+}
+
+.database-table.density-compact td,
+.database-table.density-compact th {
+  padding: var(--md-sys-spacing-3) var(--md-sys-spacing-4);
+}
+
+.database-table.density-dense td,
+.database-table.density-dense th {
+  padding: var(--md-sys-spacing-2) var(--md-sys-spacing-4);
+}
+
+/* Database name cell */
+.db-name-cell {
+  display: flex;
+  align-items: center;
+  gap: var(--md-sys-spacing-3);
+}
+
+.db-icon {
+  font-size: 20px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.database-table tbody tr.active .db-icon {
+  color: var(--md-sys-color-on-secondary-container);
+}
+
+.db-name {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 500;
+  letter-spacing: 0.25px;
+}
+
+/* Checkbox column */
+.checkbox-cell {
+  width: 48px;
+  padding-left: var(--md-sys-spacing-4) !important;
+  padding-right: 0 !important;
+}
+
+.checkbox-cell input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* Actions column */
+.actions-cell {
+  width: 120px;
+  text-align: right;
+}
+
+.row-actions {
+  display: flex;
+  gap: var(--md-sys-spacing-1);
+  justify-content: flex-end;
+  opacity: 0;
+  transition: opacity var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+}
+
+.database-table tbody tr:hover .row-actions {
+  opacity: 1;
+}
+
+.action-icon-btn {
+  background: transparent;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--md-sys-shape-corner-full);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--md-sys-color-on-surface-variant);
+  transition: all var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+  position: relative;
+  overflow: hidden;
+}
+
+.action-icon-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--md-sys-color-on-surface);
+  opacity: 0;
+  transition: opacity var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+}
+
+.action-icon-btn:hover::before {
+  opacity: var(--md-sys-state-hover-opacity);
+}
+
+.action-icon-btn .material-symbols-outlined {
+  font-size: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ========== EMPTY & LOADING STATES ========== */
+.no-databases,
+.database-list.loading,
+.database-list.error {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: var(--md-sys-spacing-4);
+  padding: var(--md-sys-spacing-12);
+}
+
+.no-databases::before {
+  content: "folder_open";
+  font-family: 'Material Symbols Outlined';
+  font-size: 64px;
+  opacity: 0.3;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.no-databases {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 14px;
+}
+
+.database-list.loading::before {
+  content: "progress_activity";
+  font-family: 'Material Symbols Outlined';
+  font-size: 48px;
+  animation: spin 1s linear infinite;
+  color: var(--md-sys-color-primary);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.database-list.error p {
+  color: var(--md-sys-color-error);
+  margin: 0;
+  font-weight: 500;
+}
+
+.database-list.error button {
+  background: var(--md-sys-color-error);
+  color: var(--md-sys-color-on-error);
+  border: none;
+  padding: 0 var(--md-sys-spacing-6);
+  height: 40px;
+  border-radius: var(--md-sys-shape-corner-full);
+  cursor: pointer;
+  font-weight: 500;
+  transition: all var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 840px) {
+  .database-list-toolbar {
+    padding: var(--md-sys-spacing-2) var(--md-sys-spacing-3);
+    flex-wrap: wrap;
+  }
+
+  .database-list-toolbar h2 {
+    font-size: 16px;
+  }
+
+  .database-search {
+    min-width: 150px;
+  }
+
+  .density-toggle {
+    display: none;
+  }
+
+  .database-table th,
+  .database-table td {
+    padding: var(--md-sys-spacing-2) var(--md-sys-spacing-3);
+  }
+}

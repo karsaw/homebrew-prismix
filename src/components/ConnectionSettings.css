@@ -1,0 +1,475 @@
+/* ============================================
+   CONNECTION SETTINGS - MATERIAL DESIGN 3 DIALOG
+   ============================================ */
+
+/* ========== SCRIM (MODAL OVERLAY) ========== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: md-fade-in var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-standard);
+  padding: var(--md-sys-spacing-6);
+}
+
+/* ========== DIALOG CONTAINER ========== */
+.modal-content {
+  background: var(--md-sys-color-surface-container-high);
+  border-radius: var(--md-sys-shape-corner-extra-large);
+  padding: 0;
+  max-width: 560px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  box-shadow: var(--md-sys-elevation-level3);
+  animation: md-scale-in var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-emphasized-decelerate);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========== DIALOG HEADER ========== */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--md-sys-spacing-6);
+  background: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-on-surface);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: var(--md-sys-spacing-3);
+  letter-spacing: 0;
+  color: var(--md-sys-color-on-surface);
+}
+
+.modal-header h2 .material-symbols-outlined {
+  font-size: 28px;
+  color: var(--md-sys-color-primary);
+}
+
+/* ========== ICON BUTTON (CLOSE) ========== */
+.close-btn {
+  background: transparent;
+  border: none;
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 24px;
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--md-sys-shape-corner-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* State layer */
+.close-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--md-sys-color-on-surface);
+  opacity: 0;
+  transition: opacity var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+  border-radius: var(--md-sys-shape-corner-full);
+}
+
+.close-btn:hover::before {
+  opacity: var(--md-sys-state-hover-opacity);
+}
+
+.close-btn:focus::before {
+  opacity: var(--md-sys-state-focus-opacity);
+}
+
+.close-btn:active::before {
+  opacity: var(--md-sys-state-pressed-opacity);
+}
+
+.close-btn .material-symbols-outlined {
+  position: relative;
+  z-index: 1;
+}
+
+/* ========== DIALOG CONTENT ========== */
+.settings-form {
+  padding: var(--md-sys-spacing-6);
+  overflow-y: auto;
+  flex: 1;
+}
+
+.form-group {
+  margin-bottom: var(--md-sys-spacing-6);
+  animation: md-slide-up var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized-decelerate) backwards;
+}
+
+.form-group:nth-child(1) {
+  animation-delay: 50ms;
+}
+
+.form-group:nth-child(2) {
+  animation-delay: 100ms;
+}
+
+.form-group:nth-child(3) {
+  animation-delay: 150ms;
+}
+
+.form-group:nth-child(4) {
+  animation-delay: 200ms;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--md-sys-spacing-2);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface-variant);
+  letter-spacing: 0.5px;
+}
+
+/* ========== MATERIAL 3 OUTLINED TEXT FIELD ========== */
+.form-group input {
+  width: 100%;
+  padding: var(--md-sys-spacing-4);
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: var(--md-sys-shape-corner-small);
+  font-size: 16px;
+  line-height: 24px;
+  transition: all var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+  box-sizing: border-box;
+  font-family: 'Roboto Mono', monospace;
+  background: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.form-group input:hover {
+  border-color: var(--md-sys-color-on-surface);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--md-sys-color-primary);
+  border-width: 2px;
+  padding: calc(var(--md-sys-spacing-4) - 1px);
+}
+
+.form-group input::placeholder {
+  color: var(--md-sys-color-on-surface-variant);
+  opacity: 0.6;
+}
+
+/* Supporting text */
+.form-group small {
+  display: block;
+  margin-top: var(--md-sys-spacing-2);
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+}
+
+/* ========== DIALOG ACTIONS ========== */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--md-sys-spacing-6);
+  border-top: 1px solid var(--md-sys-color-outline-variant);
+  gap: var(--md-sys-spacing-3);
+  background: var(--md-sys-color-surface-container-high);
+}
+
+.right-actions {
+  display: flex;
+  gap: var(--md-sys-spacing-3);
+}
+
+/* ========== MATERIAL 3 BUTTONS ========== */
+
+/* Text Button (Low emphasis) */
+.cancel-btn {
+  background: transparent;
+  color: var(--md-sys-color-primary);
+  border: none;
+  padding: 0 var(--md-sys-spacing-6);
+  height: 40px;
+  border-radius: var(--md-sys-shape-corner-full);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  cursor: pointer;
+  transition: all var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.cancel-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--md-sys-color-primary);
+  opacity: 0;
+  transition: opacity var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+}
+
+.cancel-btn:hover::before {
+  opacity: var(--md-sys-state-hover-opacity);
+}
+
+.cancel-btn:focus::before {
+  opacity: var(--md-sys-state-focus-opacity);
+}
+
+.cancel-btn:active::before {
+  opacity: var(--md-sys-state-pressed-opacity);
+}
+
+.cancel-btn span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Outlined Button (Medium emphasis) */
+.clear-btn {
+  background: transparent;
+  color: var(--md-sys-color-error);
+  border: 1px solid var(--md-sys-color-outline);
+  padding: 0 var(--md-sys-spacing-6);
+  height: 40px;
+  border-radius: var(--md-sys-shape-corner-full);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  cursor: pointer;
+  transition: all var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.clear-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--md-sys-color-error);
+  opacity: 0;
+  transition: opacity var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+}
+
+.clear-btn:hover {
+  border-color: var(--md-sys-color-error);
+}
+
+.clear-btn:hover::before {
+  opacity: var(--md-sys-state-hover-opacity);
+}
+
+.clear-btn:focus::before {
+  opacity: var(--md-sys-state-focus-opacity);
+}
+
+.clear-btn:active::before {
+  opacity: var(--md-sys-state-pressed-opacity);
+}
+
+.clear-btn span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Filled Button (High emphasis) */
+.save-btn {
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  border: none;
+  padding: 0 var(--md-sys-spacing-6);
+  height: 40px;
+  border-radius: var(--md-sys-shape-corner-full);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  cursor: pointer;
+  transition: all var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+  white-space: nowrap;
+  box-shadow: var(--md-sys-elevation-level0);
+  position: relative;
+  overflow: hidden;
+}
+
+.save-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--md-sys-color-on-primary);
+  opacity: 0;
+  transition: opacity var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+}
+
+.save-btn:hover {
+  box-shadow: var(--md-sys-elevation-level1);
+}
+
+.save-btn:hover::before {
+  opacity: var(--md-sys-state-hover-opacity);
+}
+
+.save-btn:focus::before {
+  opacity: var(--md-sys-state-focus-opacity);
+}
+
+.save-btn:active {
+  box-shadow: var(--md-sys-elevation-level0);
+}
+
+.save-btn:active::before {
+  opacity: var(--md-sys-state-pressed-opacity);
+}
+
+.save-btn span {
+  position: relative;
+  z-index: 1;
+}
+
+/* ========== SUPPORTING TEXT SECTION ========== */
+.settings-info {
+  padding: var(--md-sys-spacing-4) var(--md-sys-spacing-6);
+  background: var(--md-sys-color-surface-container);
+  border-top: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.settings-info p {
+  margin: 0;
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+}
+
+.settings-info strong {
+  color: var(--md-sys-color-on-surface);
+  font-weight: 500;
+}
+
+/* ========== THEME TOGGLE ========== */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--md-sys-spacing-3);
+  padding: var(--md-sys-spacing-4);
+  background: var(--md-sys-color-surface-container);
+  border-radius: var(--md-sys-shape-corner-medium);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  transition: all var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+  margin-bottom: var(--md-sys-spacing-6);
+}
+
+.theme-toggle:hover {
+  background: var(--md-sys-color-surface-container-high);
+}
+
+.theme-toggle label {
+  margin: 0 !important;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface);
+  cursor: pointer;
+  flex: 1;
+  letter-spacing: 0.1px;
+}
+
+.theme-toggle select {
+  padding: var(--md-sys-spacing-2) var(--md-sys-spacing-3);
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: var(--md-sys-shape-corner-small);
+  background: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+}
+
+.theme-toggle select:hover {
+  border-color: var(--md-sys-color-on-surface);
+}
+
+.theme-toggle select:focus {
+  outline: none;
+  border-color: var(--md-sys-color-primary);
+  border-width: 2px;
+  padding: calc(var(--md-sys-spacing-2) - 1px) calc(var(--md-sys-spacing-3) - 1px);
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 600px) {
+  .modal-overlay {
+    padding: var(--md-sys-spacing-4);
+  }
+
+  .modal-content {
+    max-width: 100%;
+    border-radius: var(--md-sys-shape-corner-large);
+  }
+
+  .modal-header {
+    padding: var(--md-sys-spacing-5);
+  }
+
+  .modal-header h2 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .settings-form {
+    padding: var(--md-sys-spacing-5);
+  }
+
+  .form-actions {
+    flex-direction: column;
+    gap: var(--md-sys-spacing-3);
+    padding: var(--md-sys-spacing-5);
+  }
+
+  .right-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .clear-btn,
+  .cancel-btn,
+  .save-btn {
+    width: 100%;
+  }
+
+  .settings-info {
+    padding: var(--md-sys-spacing-4) var(--md-sys-spacing-5);
+  }
+}
