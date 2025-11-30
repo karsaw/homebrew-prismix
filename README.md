@@ -99,7 +99,30 @@ A modern, professional React application for visual CouchDB query building, data
 
 ## 🚀 Getting Started
 
-### Prerequisites
+### Quick Install (macOS/Linux)
+
+**Install via Homebrew (Recommended):**
+```bash
+brew tap karsaw/prismix
+brew install prismix
+prismix
+```
+
+This will:
+- Install all dependencies automatically
+- Set up the application
+- Start both frontend (port 9876) and backend (port 9877)
+
+**Available commands after Homebrew installation:**
+- `prismix` - Start both frontend and backend
+- `prismix-server` - Start backend only
+- `prismix-dev` - Start frontend only
+
+### Manual Installation
+
+If you prefer to run from source or are not using Homebrew:
+
+#### Prerequisites
 - Node.js v16 or higher
 - CouchDB instance (local or remote)
 - npm or yarn
